@@ -62,6 +62,10 @@ const (
 	// have the bare key can set [hotkeys].agents_panel = "a" and move
 	// quick_approve.
 	hotkeyAgentsPanel = "agents_panel"
+	// Toggle a persistent background highlight on the focused session row.
+	// Bound to alt+h rather than plain "h": lowercase h is collapse-group /
+	// navigate-to-parent (the vim h/left pair) and "H" is open_shell_here.
+	hotkeyHighlightRow = "highlight_row"
 	// Session switcher. While attached it is intercepted in the tmux attach
 	// loop (see internal/tmux/pty.go AttachOptions); on the home screen it is
 	// dispatched like any other hotkey. Must resolve to a "ctrl+<letter>" chord.
@@ -130,6 +134,7 @@ var hotkeyActionOrder = []string{
 	hotkeyDetach,
 	hotkeyWatcherPanel,
 	hotkeyAgentsPanel,
+	hotkeyHighlightRow,
 	hotkeySwitchSession,
 }
 
@@ -178,6 +183,7 @@ var defaultHotkeyBindings = map[string]string{
 	hotkeyDetach:           "ctrl+q",
 	hotkeyWatcherPanel:     "w",
 	hotkeyAgentsPanel:      "alt+a",
+	hotkeyHighlightRow:     "alt+h",
 	hotkeySwitchSession:    "ctrl+s",
 }
 
